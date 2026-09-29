@@ -1,0 +1,15 @@
+@keyframes ticker{to{transform:translateX(-50%)}}
+@keyframes blink{0%,44%,48%,100%{transform:scaleY(1)}46%{transform:scaleY(.12)}}
+@keyframes sphereFloat{0%,100%{transform:translateY(0) rotateY(-8deg)}50%{transform:translateY(-11px) rotateY(8deg)}}
+@keyframes nodePulse{0%,100%{box-shadow:0 0 13px #44dff022}50%{box-shadow:0 0 25px #44dff066}}
+.hero-core{animation:sphereFloat 6s ease-in-out infinite}
+.orbit-node{animation:nodePulse 4s ease-in-out infinite}
+.orbit-node:nth-of-type(2n){animation-delay:.8s}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.reveal.is-visible{opacity:1;transform:translateY(0)}
+.service-card.reveal:nth-child(2),.why-grid article.reveal:nth-child(2){transition-delay:.08s}
+.service-card.reveal:nth-child(3),.why-grid article.reveal:nth-child(3){transition-delay:.16s}
+.service-card.reveal:nth-child(4){transition-delay:.1s}
+.service-card.reveal:nth-child(5){transition-delay:.18s}
+.service-card.reveal:nth-child(6){transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

@@ -1,0 +1,29 @@
+@keyframes robot-float{0%,100%{transform:translateY(0) rotateZ(-1deg) scale(var(--robot-scale,1))}50%{transform:translateY(-10px) rotateZ(1deg) scale(var(--robot-scale,1))}}
+@keyframes robot-wave{0%,100%{transform:rotate(-22deg)}45%,68%{transform:rotate(-78deg)}}
+@keyframes robot-pulse{0%,100%{box-shadow:0 0 18px #43ddff99,inset 0 0 13px #43ddff6b}50%{box-shadow:0 0 30px #43ddff,inset 0 0 20px #43ddff99}}
+.robot{--robot-scale:1;--eye-x:0px;--eye-y:0px;transform:scale(var(--robot-scale));animation:robot-float 5.5s ease-in-out infinite;transform-origin:50% 55%;will-change:transform}
+.robot-head{will-change:transform;transition:transform .22s ease-out}
+.robot-eyes i{transform:translate(var(--eye-x),var(--eye-y));transition:transform .18s ease-out}
+.robot-arm{transition:transform .55s cubic-bezier(.2,.8,.2,1),top .55s ease;will-change:transform}
+.robot-arm i{transition:transform .4s ease}
+.robot-body,.body-core{transition:transform .45s ease,box-shadow .45s ease}
+.robot[data-state="hero"] .arm-right{animation:robot-wave 3.8s ease-in-out infinite;transform-origin:top center}
+.robot[data-state="services"] .arm-left{transform:rotate(48deg)}.robot[data-state="services"] .arm-right{transform:rotate(-48deg)}
+.robot[data-state="web"] .arm-left{transform:rotate(10deg)}.robot[data-state="web"] .arm-right{transform:rotate(-64deg)}
+.robot[data-state="app"] .arm-left{transform:rotate(54deg)}.robot[data-state="app"] .arm-right{transform:rotate(-18deg)}
+.robot[data-state="marketing"] .arm-left{transform:rotate(58deg)}.robot[data-state="marketing"] .arm-right{transform:rotate(-48deg)}
+.robot[data-state="design"] .arm-left{transform:rotate(36deg)}.robot[data-state="design"] .arm-right{transform:rotate(-68deg)}
+.robot[data-state="creative"] .arm-left{transform:rotate(24deg)}.robot[data-state="creative"] .arm-right{transform:rotate(-75deg)}
+.robot[data-state="custom"] .arm-left{transform:rotate(60deg)}.robot[data-state="custom"] .arm-right{transform:rotate(-60deg)}
+.robot[data-state="orbital"] .arm-left{transform:rotate(50deg)}.robot[data-state="orbital"] .arm-right{transform:rotate(-50deg)}
+.robot[data-state="project"] .arm-left{transform:rotate(68deg)}.robot[data-state="project"] .arm-right{transform:rotate(-68deg)}
+.robot[data-state="about"] .arm-left{transform:rotate(12deg)}.robot[data-state="about"] .arm-right{transform:rotate(-38deg)}
+.robot[data-state="discover"] .arm-left,.robot[data-state="plan"] .arm-left,.robot[data-state="design-process"] .arm-left,.robot[data-state="develop"] .arm-left,.robot[data-state="test"] .arm-left,.robot[data-state="launch"] .arm-left{transform:rotate(35deg)}
+.robot[data-state="discover"] .arm-right,.robot[data-state="plan"] .arm-right,.robot[data-state="design-process"] .arm-right,.robot[data-state="develop"] .arm-right,.robot[data-state="test"] .arm-right,.robot[data-state="launch"] .arm-right{transform:rotate(-48deg)}
+.robot[data-state="contact"] .arm-right{animation:robot-wave 2.8s ease-in-out infinite;transform-origin:top center}
+.robot[data-state="project"] .body-core,.robot[data-state="contact"] .body-core{animation:robot-pulse 1.8s ease-in-out infinite}
+.robot[data-state="marketing"] .body-light,.robot[data-state="custom"] .body-light{width:26px;left:54px;box-shadow:0 0 15px #45e4ff}
+.robot[data-state="web"] .robot-mouth{width:29px}.robot[data-state="contact"] .robot-mouth{width:31px}
+@media(max-width:760px){.robot{--robot-scale:.92;transform-origin:50% 48%;animation-duration:6.5s}.robot-aura{opacity:.78}.robot[data-state="hero"] .arm-right,.robot[data-state="contact"] .arm-right{animation-duration:4.6s}}
+@media(max-width:420px){.robot{--robot-scale:.86;transform-origin:50% 48%}}
+@media(prefers-reduced-motion:reduce){.robot,.robot[data-state="hero"] .arm-right,.robot[data-state="contact"] .arm-right,.robot[data-state="project"] .body-core,.robot[data-state="contact"] .body-core{animation:none!important}.robot-arm,.robot-head,.robot-eyes i{transition:none!important}}
